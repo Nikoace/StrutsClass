@@ -17,7 +17,7 @@ public class MyProductConverter extends DefaultTypeConverter {
             MyProduct res = new MyProduct ();
             res.setName ( info[0] );
             res.setPrice ( Double.parseDouble ( info[1] ) );
-            res.setPrice ( Integer.parseInt ( info[2] ) );
+            res.setCount ( Integer.parseInt ( info[2] ) );
             return res;
         }else {
             return null;

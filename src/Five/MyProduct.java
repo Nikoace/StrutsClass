@@ -1,6 +1,5 @@
 package Five;
 
-import java.util.Map;
 
 public class MyProduct {
     private String name;

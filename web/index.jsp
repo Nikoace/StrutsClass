@@ -33,6 +33,11 @@
       <br/>
       <input type="submit" value="submit"/>
   </form>
+  <form action="/aa/MyProductAction.action" method="post">
+      product: <input type="text" name="product">
+      <input type="submit">
+  </form>
+  <s:property value="product"/>
   <s:property value="score"/>
   <br/>
   <s:property value="mDate" />
