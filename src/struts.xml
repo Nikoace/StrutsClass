@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+    <package name="sss" namespace="/"  extends="struts-default">
+        <!--<interceptors>-->
+            <!--<interceptor name="t1" class="firstweek.MyInterceptor"/>-->
+            <!--<interceptor name="t2" class="firstweek.MyInterceptor"/>-->
+            <!--<interceptor-stack name="st">-->
+                <!--<interceptor-ref name="t1">-->
+                    <!--<param name="msg">t1执行时间：</param>-->
+                <!--</interceptor-ref>-->
+                <!--<interceptor-ref name="t2">-->
+                    <!--<param name="msg">t2执行时间：</param>-->
+                <!--</interceptor-ref>-->
+            <!--</interceptor-stack>-->
+            <!--<interceptor name="method" class="firstweek.MyInterceptor">-->
+                <!--<param name="msg">sayhi方法过滤</param>-->
+                <!--<param name="excludeMethods">sayGood</param>-->
+        <interceptors>
+            <interceptor name="Logininterceptor" class="firstweek.LoginInterceptor"/>
+            <interceptor-stack name="st">
+                <!--<interceptor-ref name="MethodIntercepotor"/>-->
+                <interceptor-ref name="Logininterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="st"/>
+        <global-results>
+            <result name="login">/login.jsp</result>
+        </global-results>
+
+        <action name="meet" class="firstweek.HelloWorld">
+            <result name="OK" type="redirect">http://www.baidu.com</result>
+            <result name="nice">/index.jsp</result>
+            <allowed-methods>sayhi,sayGood,login</allowed-methods>
+        </action>
+        <action name="random1" class="firstweek.ActionTest">
+            <result name="success">/actiontest/OK.jsp</result>
+            <result name="error">/actiontest/ERROR.jsp</result>
+        </action>
+        <action name="show" class="firstweek.ParamShow">
+            <result name="success">/show.jsp</result>
+            <result name="error">/index.jsp</result>
+        </action>
+    </package>
+    <package name="ddd" namespace="/aa" extends="struts-default">
+
+
+        <action name="meet" class="firstweek.cal">
+            <result name="success">/cal.jsp</result>
+            <result name="error">/cal.jsp</result>
+
+            <allowed-methods>cal</allowed-methods>
+        </action>
+
+        <action name="test" class="firstweek.AwareTest">
+            <result name="success">/Visit.jsp</result>
+            <allowed-methods>num</allowed-methods>
+        </action>
+        
+        <action name="codeimage" class="ThirdWeek.MyImage">
+            <result name="success" type="stream">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputName">mystream</param>
+            </result>
+        </action>
+
+        <action name="mybirthday" class="Five.MyBirthday">
+            <result name="success">/index.jsp</result>
+        </action>
+        <action name="myscore" class="Five.MyScore">
+            <result name="success">/index.jsp</result>
+        </action>
+
+    </package>
+
+</struts>
