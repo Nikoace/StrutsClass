@@ -48,13 +48,11 @@
             <result name="error">/index.jsp</result>
         </action>
     </package>
+
     <package name="ddd" namespace="/aa" extends="struts-default">
-
-
         <action name="meet" class="firstweek.cal">
             <result name="success">/cal.jsp</result>
             <result name="error">/cal.jsp</result>
-
             <allowed-methods>cal</allowed-methods>
         </action>
 
@@ -70,16 +68,46 @@
             </result>
         </action>
 
-        <action name="mybirthday" class="Five.MyBirthday">
-            <result name="success">/index.jsp</result>
-        </action>
-        <action name="myscore" class="Five.MyScore">
-            <result name="success">/index.jsp</result>
-        </action>
-        <action name="MyProductAction" class="Five.MyProductAction">
+        <!--<action name="mybirthday" class="Five.MyBirthday">-->
+            <!--<result name="success">/index.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="myscore" class="Five.MyScore">-->
+            <!--<result name="success">/index.jsp</result>-->
+        <!--</action>-->
+
+        <action name="vstest" class="ValueStack.ValueStackTest">
             <result name="success">/index.jsp</result>
         </action>
 
+        <action name="vv" class="valibate.MyValidateAction">
+            <result name="success">/cal.jsp</result>
+            <result name="input">/index1.jsp</result>
+        </action>
+
+        <action name="up" class="updown.uploadAction">
+            <result name="success">/show.jsp</result>
+            <result name="input">/index.jsp</result>
+            <param name="savePath">C:/</param>
+            <interceptor-ref name="fileUpload">
+                <param name="maximumSize">4096</param>
+                <param name="allowedTypes">image/jpeg.iamge/gif</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"/>
+        </action>
+
+        <action name="download" class="updown.downloadAction">
+            <param name="filePath">C:/</param>
+            <result name="success" type="stream">
+                <param name="contentType">appl</param>
+            </result>
+        </action>
+
+    </package>
+    <package name="ss11" extends="struts-default">
+        <action name="infoprint" class="ajax.InfoAjaxAction">
+            <result name="success">/cal.jsp</result>
+        </action>
     </package>
 
 </struts>

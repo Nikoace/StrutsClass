@@ -43,5 +43,8 @@
   <s:property value="mDate" />
   <br/>
   <s:date name="mDate" format="yyyy-MM-dd HH:mm:ss"/>
+  <br>
+  <s:property value="word"/>
+  <s:property value="#wordnn"/>
   </body>
 </html>
